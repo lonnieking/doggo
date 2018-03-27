@@ -1,0 +1,26 @@
+{
+  "name": "doggo",
+  "version": "1.0.0",
+  "description": "doggo detection agency",
+  "main": "index.js",
+  "scripts": {
+    "create": "AWS_PROFILE=personal AWS_REGION=ap-southeast-2 arc-create",
+    "deploy": "AWS_PROFILE=personal AWS_REGION=ap-southeast-2 arc-deploy",
+    "test": "AWS_PROFILE=personal AWS_REGION=ap-southeast-2 NODE_ENV=testing tape test/**/**/*-test.js | tap-spec",
+    "start": "AWS_PROFILE=personal AWS_REGION=ap-southeast-2 NODE_ENV=testing nodemon --watch src -e js,css --exec arc-sandbox"
+  },
+  "keywords": [],
+  "author": "Lonnie King",
+  "license": "ISC",
+  "dependencies": {
+    "@architect/workflows": "^2.2.4",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "aws-sdk-mock": "^1.7.0",
+    "nodemon": "^1.17.1",
+    "request": "^2.83.0",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.9.0"
+  }
+}
