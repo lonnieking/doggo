@@ -54,7 +54,7 @@ module.exports = function layout(req, body) {
       <body>
         <div class="content">
           <div id="doggo">🐶</div>
-          <form action="/image" method="post">
+          <form action="${req._url('/image')}" method="post">
             <div>
               <input name="fileUri" type="text" placeholder="url to an image of a doggo..." required />
             </div>
