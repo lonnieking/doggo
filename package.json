@@ -20,6 +20,7 @@
     "aws-sdk-mock": "^1.7.0",
     "nodemon": "^1.17.1",
     "request": "^2.83.0",
+    "sinon": "^4.4.9",
     "tap-spec": "^4.1.1",
     "tape": "^4.9.0"
   }
