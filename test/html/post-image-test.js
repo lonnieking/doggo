@@ -1,7 +1,7 @@
 var test = require('tape')
 var arc = require('@architect/workflows')
 var request = require('request')
-var requestPromise = require('request-promise')
+var rp = require('request-promise')
 var aws = require('aws-sdk-mock')
 var sinon = require('sinon')
 var req = request.defaults({ jar: true })
@@ -20,7 +20,7 @@ test('post /image', t=> {
   t.plan(3)
 
   var s3Mock = aws.mock('S3', 'putObject', {});
-  sinon.stub(requestPromise, 'get').yields(null, { statusCode: 200 }, 'foo')
+  sinon.stub(rp, 'get').yields(null, { statusCode: 200 }, 'foo')
 
   var url = 'http://localhost:3333/image'
   var request = { fileUri: 'http://www.doggos.com/image.jpg' }
@@ -41,7 +41,7 @@ test('post /image', t=> {
     }
   })
 
-  var request = { fileUri: 'http://www.doggos.com/image.tiff' }
+  var request = { fileUri: 'http://www.doggos.com/image.docx' }
 
   req.post({ url: url, form: request }, (err, res, body) => {
     if(err) t.fail(err)

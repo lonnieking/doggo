@@ -2,6 +2,7 @@
   "name": "doggo-post-image",
   "dependencies": {
     "@architect/functions": "^1.6.5",
+    "request": "^2.85.0",
     "request-promise": "^4.2.2"
   }
 }
