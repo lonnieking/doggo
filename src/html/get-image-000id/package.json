@@ -1,0 +1,7 @@
+{
+  "name": "doggo-get-image-000id",
+  "dependencies": {
+    "@architect/functions": "^1.6.5",
+    "request-promise": "^4.2.2"
+  }
+}
