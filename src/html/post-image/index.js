@@ -1,6 +1,6 @@
 var arc = require('@architect/functions')
 var uuid = require('uuid')
-const rp = require('request-promise')
+var request = require('request')
 var aws = require('aws-sdk')
 var s3 = new aws.S3();
 
@@ -17,10 +17,10 @@ function route(req, res) {
     var imageKey = uuid.v4() + fileExt[0]
     var options = { uri: fileLocation, encoding: null }
 
-    rp.get(options, (error, response, body) => {
+    request.get(options, (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        console.log(`failed to get image: ${error}`)
-        if(error) res(error)
+        console.log(`failed to get image: status ${response.statusCode}: ${error}`)
+        res({ location: req._url('/') })
       }
       else {
         var params = { Bucket: bucketName, Key: imageKey, Body: body }
