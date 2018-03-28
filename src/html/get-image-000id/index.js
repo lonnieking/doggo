@@ -28,18 +28,12 @@ function route(req, res) {
     else if(data.Labels.length > 0) {
       var selectedBreed = data.Labels.filter(label => breeds.includes(label.Name))[0]
       var message = `The robots couldn't work it out this time.`
-      var image = ``
 
-      if(selectedBreed) {
-        image = `<img src="${imageHost}${imageId}" alt="${selectedBreed.Name}"/>`
-        message = `That's a ${selectedBreed.Name}`
-      }
-      else {
-        message = "Sorry, that doesn't look like a dog to me."
-      }
+      if(selectedBreed) message = `That's a ${selectedBreed.Name}`
+      else message = "Sorry, that doesn't look like a dog to me."
     }
 
-    res({ html: layout(req, `<div id=selected-breed>${message}</div>${image}`) })
+    res({ html: layout(req, `<div id=selected-breed>${message}</div>`) })
   })
 }
 
